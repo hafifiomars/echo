@@ -1,3 +1,21 @@
+<script type="text/javascript">
+
+function show_alert_edit(){
+alert("Record Updated Successfully");
+history.go(-2);
+}
+show_alert_edit();
+
+function show_alert_date_unavailable(){
+
+var jsvar = <?php echo json_encode($idapp) ; ?> ;
+alert("Appointment full. Please choose other date! ");
+window.location="edit_view_record.php?x=1&id="+jsvar;
+}
+show_alert_date_unavailable();
+	
+</script>
+
 <?php 
 require_once('auth.php');
 require_once('Connections/conn.php');
@@ -63,24 +81,12 @@ $totalRows_recform = mysqli_num_rows($recform);
 	
 
 	?>	<script type="text/javascript">
-
-		function show_alert_edit(){
-			alert("Record Updated Successfully");
-			history.go(-2);
-		}
-	
 	show_alert_edit();
 	</script>
 			
 	<?php } else { ?> 
 
 		<script type="text/javascript">
- 		function show_alert_date_unavailable(){
-
-	 		var jsvar = <?php echo json_encode($idapp) ; ?> ;
-	 		alert("Appointment full. Please choose other date! ");
-	 		window.location="edit_view_record.php?x=1&id="+jsvar;
- 		}
  		show_alert_date_unavailable();
  		</script>
 
@@ -186,12 +192,6 @@ $up_txtdate = mysqli_real_escape_string($conn, $_POST['uptxtdate']);
 	}
 ?>
 	<script type="text/javascript">
-
-	function show_alert_edit(){
-	alert("Record Updated Successfully");
-	history.go(-2);
-	}
-
 	show_alert_edit();
 	</script>
 
